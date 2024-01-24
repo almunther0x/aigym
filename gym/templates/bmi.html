@@ -1,0 +1,146 @@
+{% extends "structure.html" %}
+{% block content %}
+{% load static %}
+{% static "" as baseUrl %}
+<a id="bgndVideo" class="player"
+    data-property="{videoURL:'https://www.youtube.com/watch?v=w-cRWOjlk8c',showYTLogo:false, showAnnotations: false, showControls: false, cc_load_policy: false, containment:'#home-section',autoPlay:true, mute:true, startAt:255, stopAt: 271, opacity:1}">
+</a>
+
+<div class="intro-section" id="home-section" style="background-color: #ccc;">
+    <div class="container">
+
+        <div class="row align-items-center">
+            <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                <h1 class="mb-3">BMI Calculator</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="site-section bg-light contact-wrap" id="contact-section">
+    <div class="container">
+
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-8  section-heading">
+                <!-- <span class="subheading"></span> -->
+                <!-- <h2 class="heading mb-3">BMI</h2> -->
+                <p>This service allows the user to calculate his daily calorie needs.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <form method="post" data-aos="fade">
+                    <div class="form-group row">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <input type="number" name="age" class="form-control" placeholder="Age" required>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="gender" class="form-control">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <input type="nmber" class="form-control" name="weight" placeholder="Weight" required>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="activity" class="form-control">
+                                <option value="none">Select your activity type</option>
+                                <option value="none">None</option>
+                                <option value="light">Light</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="heavy">Heavy</option>
+                                <option value="xheavy">Extra heavy</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <input type="number" class="form-control" name="height" placeholder="Height" required>
+                        </div>
+                        <div class="col-md-6 mb-3 mb-lg-0">
+                            <input type="number" class="form-control" name="goalweight" placeholder="Weight Goal" required>
+                        </div>
+                    </div>
+                    {% csrf_token %}
+
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+
+                            <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Calculate">
+                        </div>
+                    </div>
+
+                </form>
+
+                {% if results %}
+                <div class="m-3 p-3 rounded bg-success text-white">
+                    <table class="m-3 col-12">
+                        <tr>
+                            <td>BMI</td>
+                            <td>{{ results.bmi }}</td>
+                        </tr>
+                        <tr>
+                            <td>Weight status</td>
+                            <td>{{ results.weight_status }}</td>
+                        </tr>
+                        <tr>
+                            <td>Activity level</td>
+                            <td>{{ results.activity_level }}</td>
+                        </tr>
+                        <tr>
+                            <td>Weight Goal</td>
+                            <td>{{ results.goal_weight }}</td>
+                        </tr>
+                        <tr>
+                            <td>BMR</td>
+                            <td>{{ results.raw_bmr }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Daily Calories Intake {{ results.weight_for }}
+                            </td>
+                            <td>{{ results.bmr }}</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <h3>7 Days Meal Plan</h3>
+
+                {% if meals_list %}
+                    <div class="mt-3 p-3 rounded col-12 row">
+                        <table class="table col-12">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Breakfast</th>
+                                    <th scope="col">Lunch</th>
+                                    <th scope="col">Dinnrer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in meals_list %}
+                                <tr>
+                                    {% for meal in item %}
+                                    <th scope="row">
+                                        {{ meal.meal_name }}
+                                        <p>{{ meal.meal_kcal }} calories - {{ meal.meal_measure }}</p>
+                                    </th>
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

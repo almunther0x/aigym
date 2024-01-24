@@ -1,0 +1,112 @@
+*{padding: 15;  margin: 12;}
+    
+  
+
+body{ 
+  font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+	color: #212112;
+	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+	background-position: center;
+	background-repeat: repeat;
+	background-size: 7%;
+	background-color: #fff;
+	overflow-x: hidden;
+    transition: all 200ms linear;
+}
+
+
+strong{
+    
+    text-align: center;text-transform: uppercase;margin: 10px;
+}
+.h1{
+    width: 150px;
+    height: 30%px;
+    border: none;
+    outline: none;
+    background: #01176d;
+    color: #fff;
+    margin: 4px 1px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2px;
+    
+}
+
+h2{
+    width: 400px;
+    height: 30%px;
+    border: none;
+    outline: none;
+    background: #000000;
+    color: #fff;
+    margin: 1px 22px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2px;
+}
+.bb{
+    align-self: center;
+    padding: 20px  280px;
+    border: 1px;
+}
+strong{
+  background: #f23a2e;
+  
+  color: rgb(255, 255, 255);
+
+}
+
+.exercise-images-grid{
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  
+}
+video {
+  padding: 20px;
+  width: 100%; /* Set a fixed width, which will make all videos the same width */
+  height: auto; /* Allow the aspect ratio to be maintained for each video */
+  border: 5px dashed #f23a2e; /* Set the border style, thickness, and color */
+  border-radius: 12px; /* Optional: Add rounded corners to the border */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+.exercise-images-grid .p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+
+        
+ol li {
+  list-style-type: none;
+  counter-increment: item;
+  font-size: 24px; /* Adjust the font size to a more readable size */
+  margin-bottom: 10px; /* Add some spacing between list items */}
+
+ol li:before {
+  content: counter(item);
+  margin-right: 20px;
+  font-size: 85%;
+  background-color: #f23a2e;
+  color: #070707;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+    
+
+@media screen and (max-width:600px){.body{height:650px;max-width:100%}}
+
+@media screen and (max-width:500px){.body{height:650px;max-width:100%}}
+
+@media screen and (max-width:360px){.body{height:600px;max-width:100%}}
+
+@media screen and (max-width:320px){.body{height:500px;max-width:100%}}

@@ -1,0 +1,463 @@
+{% extends "structure.html" %}
+{% block content %}
+{% load static %}
+{% static "" as baseUrl %}
+<a id="bgndVideo" class="player"
+  data-property="{videoURL:'https://www.youtube.com/watch?v=w-cRWOjlk8c',showYTLogo:false, showAnnotations: false, showControls: false, cc_load_policy: false, containment:'#home-section',autoPlay:true, mute:true, startAt:255, stopAt: 271, opacity:1}">
+</a>
+
+<div class="intro-section" id="home-section" style="background-color: #ccc;">
+  <div class="container">
+
+    <div class="row align-items-center">
+      <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+        <h1 class="mb-3">We Believe Little Things Matter</h1>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="schedule-wrap">
+
+
+
+  <div class="d-md-flex align-items-center">
+    <div class="hours mr-md-4 mb-4 mb-lg-0">
+      <strong class="d-block"> NEVER GIVE UP</strong>
+    </div>
+  </div>
+</div>
+
+<div class="site-section">
+  <div class="container">
+
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-8 section-heading">
+        <span class="subheading">Stay Healthy</span>
+        <h2 class="heading mb-3">About Us</h2>
+        <p>A website interested in sports fans or those who want to know sports news or sports injuries. We offer you
+          some services such as:</p>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="owl-carousel nonloop-block-14 block-14 text-center" data-aos="fade">
+      <div class="slide">
+        {% if user == True %}
+        <a href="/exercise/training" class="ftco-feature-1">
+        {% else %}
+        <a href="/login" class="ftco-feature-1">
+        {% endif %}
+          <span class="icon flaticon-gym-1"></span>
+          <div class="ftco-feature-1-text">
+            <h2>Mastering exercises</h2>
+            <p>This feature allows the user to know whether he is performing the exercise correctly or not</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="slide">
+        {% if user == True %}
+        <a href="/me" class="ftco-feature-1">
+        {% else %}
+        <a href="/login" class="ftco-feature-1">
+        {% endif %}
+          <span class="icon flaticon-gym"></span>
+          <div class="ftco-feature-1-text">
+            <h2>Muscle exercises</h2>
+            <p>This feature allows the user to choose a muscle in the body to learn in the video some special exercises
+              for the selected muscle.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="slide">
+        {% if user == True %}
+        <a href="/caloris" class="ftco-feature-1">
+        {% else %}
+        <a href="/login" class="ftco-feature-1">
+        {% endif %}
+          <span class="icon flaticon-vegetables"></span>
+          <div class="ftco-feature-1-text">
+            <h2>Food Caloris</h2>
+            <p>This service allows the user to know the calories in food. How many calories do you need to burn?</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="slide">
+        {% if user == True %}
+        <a href="/foodcounter" class="ftco-feature-1">
+        {% else %}
+        <a href="/login" class="ftco-feature-1">
+        {% endif %}
+        <br>
+          <span class="icon fa fa-book"></span>
+          <br><br>
+          <div class="ftco-feature-1-text">
+            <h2>Food Caloris Counter</h2>
+            <p>This service allows the user to know the calories in food. How many calories do you need to burn?</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="slide">
+        {% if user == True %}
+        <a href="/bmi" class="ftco-feature-1">
+        {% else %}
+        <a href="/login" class="ftco-feature-1">
+        {% endif %}
+          <span class="icon flaticon-fruit-juice"></span>
+          <div class="ftco-feature-1-text">
+            <h2>BMI calculator</h2>
+            <p>This service allows the user to calculate his daily calorie needs</p>
+          </div>
+        </a>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<div class="bgimg" style="background-image: url('{{baseUrl}}images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+
+  <div class="container">
+    <div class="row align-items-center justify-content-center text-center">
+      <div class="col-md-7">
+        <h2 class="">Get The Result You Want</h2>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="site-section" id="Sports-section">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-8  section-heading">
+        <span class="subheading"></span>
+        <h2 class="heading mb-3">Sports</h2>
+        <p>Here we review the 10 most famous sports, their definitions and benefits.</p>
+      </div>
+    </div>
+    <div class="row">
+      {% if sports_list %}
+      {% for item in sports_list %}
+      <div class="col-lg-6 d-inline-block">
+        <div class="class-item d-flex align-items-center">
+          <a href="sports/{{ item.title }}" class="class-item-thumbnail">
+            <img src="{{ baseUrl }}images/{{ item.background }}" alt="Free website template by Free-Template.co">
+          </a>
+          <div class="class-item-text">
+            <h2><a href="sports/{{ item.title }}">{{ item.title }}</a></h2>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="bgimg" style="background-image: url('{{baseUrl}}images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row align-items-center justify-content-center text-center">
+      <div class="col-md-7">
+        <h2 class="">Every Step Counts</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="site-section" id="Injuries-section">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-8  section-heading">
+        <span class="subheading"></span>
+        <h2 class="heading mb-3">Injuries</h2>
+        <p>Here we review the 10 most common sports injuries, their definition and their threats.</p>
+      </div>
+    </div>
+
+
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="nav-sunday" role="tabpanel" aria-labelledby="nav-sunday-tab">
+        <div class="row">
+            {% if injuries_list %}
+            {% for item in injuries_list %}
+            <div class="col-lg-6 d-inline-block">
+              <div class="class-item d-flex align-items-center">
+                <a href="sports/{{ item.title }}" class="class-item-thumbnail">
+                  <img src="{{ baseUrl }}images/{{ item.background }}"
+                    alt="Free website template by Free-Template.co">
+                </a>
+                <div class="class-item-text">
+                  <h2><a href="sports/{{ item.title }}">{{ item.title }}</a></h2>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <div class="bgimg" style="background-image: url('{{baseUrl}}images/bg_1.jpg');"
+          data-stellar-background-ratio="0.5">
+          <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+              <div class="col-md-7">
+                <h2 class="">Your Fitness Partner Where Ever You Are</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="container">
+        <div class="tab-content">
+
+        <div class="site-section" id="News-section">
+          <div class="container">
+            <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+              <div class="col-md-8  section-heading">
+                <span class="subheading">News</span>
+                <h2 class="heading mb-3">Our News</h2>
+                <p>Here we review the famous world and sports news.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="">
+                <div class="person">
+                  <a href="https://www.aljazeera.com/news/" target="_blank">
+                    <img src="{% static 'images/news/world news.jpeg' %}"
+                      alt="Free website template by Free-Template.co" class="img-fluid">
+                  </a>
+                  <h3>World</h3>
+                  <p class="position">news</p>
+                  <p><a href="https://www.aljazeera.com/news/" target="_blank" class="btn btn-primary py-3 px-4">read
+                      more</a></p>
+
+                </div>
+              </div>
+              <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="person">
+                  <a href="https://www.skysports.com/football/news" target="_blank">
+                    <img src="{% static 'images/news/football news.jpeg' %}"
+                      alt="Free website template by Free-Template.co" class="img-fluid">
+                  </a>
+                  <h3>Football</h3>
+                  <p class="position">news</p>
+                  <p><a href="https://www.skysports.com/football/news" target="_blank"
+                      class="btn btn-primary py-3 px-4">read more</a></p>
+                </div>
+              </div>
+              <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="person">
+                  <a href="https://globalnews.ca/tag/gym/" target="_blank">
+                    <img src="{% static 'images/news/gym news.jpeg' %}" alt="Free website template by Free-Template.co"
+                      class="img-fluid">
+                  </a>
+                  <h3>Gym</h3>
+                  <p class="position">news</p>
+                  <p><a href="https://globalnews.ca/tag/gym/" target="_blank" class="btn btn-primary py-3 px-4">read
+                      more</a></a></p>
+                </div>
+              </div>
+              <div class="col-lg-3 mb-4 mb-lg-0 col-md-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="person">
+                  <a href="https://www.rookieroad.com/basketball/101/basics/" target="_blank">
+                    <img src="{% static 'images/news/Basketball.jpeg' %}"
+                      alt="Free website template by Free-Template.co" class="img-fluid">
+                  </a>
+                  <h3>Basketball</h3>
+                  <p class="position">news</p>
+                  <p><a href="https://www.rookieroad.com/basketball/101/basics/" target="_blank"
+                      class="btn btn-primary py-3 px-4">read more</a></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="site-section" id="services-section">
+          <div class="container">
+            <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+              <div class="col-md-8  section-heading">
+                <span class="subheading">Fitness Services</span>
+                <h2 class="heading mb-3">Services</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                  the
+                  blind
+                  texts.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              {% if user == True %}
+              <a href="/exercise/training" class="text-decoration-none">
+                {% else %}
+                <a href="/login" class="text-decoration-none">
+                  {% endif %}
+                  <div class="col-lg-4 mb-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ftco-feature-1">
+                      <span class="icon flaticon-gym-1"></span>
+                      <div class="ftco-feature-1-text">
+                        <h2>Mastering exercises</h2>
+                        <p>This feature allows the user to know whether he is performing the exercise correctly or not
+                        </p>
+                      </div>
+                    </div>
+                </a>
+            </div>
+            {% if user == True %}
+            <a href="/me" class="text-decoration-none">
+              {% else %}
+              <a href="/login" class="text-decoration-none">
+                {% endif %}
+                <div class="col-lg-4 mb-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <div class="ftco-feature-1">
+                    <span class="icon flaticon-gym"></span>
+                    <div class="ftco-feature-1-text">
+                      <h2>Muscle exercises</h2>
+                      <p>This feature allows the user to choose a muscle in the body to learn in the video some special
+                        exercises for the selected muscle.</p>
+                    </div>
+                  </div>
+              </a>
+          </div>
+
+          <div class="col-lg-4 mb-4 col-md-6" data-aos="fade-up" data-aos-delay="">
+            {% if user == True %}
+            <a href="/caloris" class="text-decoration-none">
+              {% else %}
+              <a href="/login" class="text-decoration-none">
+                {% endif %}
+                <div class="ftco-feature-1">
+                  <span class="icon flaticon-vegetables"></span>
+                  <div class="ftco-feature-1-text">
+                    <h2>Food Caloris</h2>
+                    <p>This service allows the user to know the calories in food. How many calories do you need to burn?
+                    </p>
+                  </div>
+                </div>
+              </a>
+          </div>
+
+
+          <div class="col-lg-4 mb-4 col-md-6" data-aos="fade-up" data-aos-delay="">
+            {% if user == True %}
+            <a href="/foodcounter" class="text-decoration-none">
+              {% else %}
+              <a href="/login" class="text-decoration-none">
+                {% endif %}
+                <div class="ftco-feature-1">
+                  <span class="icon fa fa-book"></span>
+                  <div class="ftco-feature-1-text">
+                    <h2>Food Caloris Counter</h2>
+                    <p>This service allows the user to know the calories in food. How many calories do you need to burn?
+                    </p>
+                  </div>
+                </div>
+              </a>
+          </div>
+
+          {% if user == True %}
+          <a href="/bmi" class="text-decoration-none">
+            {% else %}
+            <a href="/login" class="text-decoration-none">
+              {% endif %}
+              <div class="col-lg-4 mb-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="ftco-feature-1">
+                  <span class="icon flaticon-fruit-juice"></span>
+                  <div class="ftco-feature-1-text">
+                    <h2>BMI calculator</h2>
+                    <p>This service allows the user to calculate his daily calorie needs</p>
+                  </div>
+                </div>
+            </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section bg-light contact-wrap" id="contact-section">
+    <div class="container">
+
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-md-8  section-heading">
+          <span class="subheading">Get In Touch</span>
+          <h2 class="heading mb-3">Contact Us</h2>
+          <p>Here you can contact us by write feedback there.
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-7">
+          <form method="post" data-aos="fade">
+            <div class="form-group row">
+              <div class="col-md-6 mb-3 mb-lg-0">
+                <input type="text" class="form-control" placeholder="First name" name="first_name" required>
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Last name" name="last_name" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-12">
+                <input type="email" class="form-control" placeholder="Email" name="email" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <textarea class="form-control" id="" cols="30" rows="10" placeholder="Write your message here."
+                  name="message" required></textarea>
+              </div>
+            </div>
+            {% csrf_token %}
+
+            {% if error_msg %}
+            <div class="m-3 p-3 bg-danger text-white">
+              <p>Sorry something went wrong try again later...</p>
+            </div>
+            {% endif %}
+
+            <div class="form-group row">
+              <div class="col-md-6">
+
+                <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Send Message">
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="schedule-wrap2 clearfix">
+    <div class="d-md-flex align-items-center">
+      <div class="hours mr-md-4 mb-4 mb-lg-0">
+        <strong class="d-block">STOP WISHING START DOING</strong>
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}

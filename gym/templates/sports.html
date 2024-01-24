@@ -1,0 +1,45 @@
+{% extends "structure.html" %}
+{% block content %}
+{% load static %}
+{% static "" as baseUrl %}
+{% for item in details %}
+<div class="bgimg" style="background-image: url('{{ baseUrl }}images/{{item.background}}' );" data-stellar-background-ratio="0.5">
+
+  <div class="container">
+    <div class="row align-items-center justify-content-center text-center">
+      <div class="col-md-7">
+        <h2 class="">{{ item.title }}</h2> 
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="site-section">
+  <div class="container">
+    <div class="row mb-5">
+        <div class="col-lg-12 text-center">
+            <img src="{{ baseUrl }}images/{{ item.image }}" alt="" class="img-fluid mx-auto" style="width: 1000px; height: 500px;">
+          </div>                            
+    </div>
+    <div class="row">
+      {{ item.about |safe }}
+    </div>
+      <div class="row">
+        <div class="col-12">
+          <p><a href="{{ item.link }}" class="btn btn-primary py-3 px-4" target="_blank">read more</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--   --> 
+<div class="schedule-wrap2 clearfix">
+<div class="d-md-flex align-items-center">
+<div class="hours mr-md-4 mb-4 mb-lg-0">
+  <strong class="d-block">STOP WISHING START DOING</strong>
+</div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}

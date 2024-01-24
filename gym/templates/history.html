@@ -1,0 +1,98 @@
+{% extends "structure.html" %}
+{% block content %}
+{% load static %}
+{% static "" as baseUrl %}
+<a id="bgndVideo" class="player"
+    data-property="{videoURL:'https://www.youtube.com/watch?v=w-cRWOjlk8c',showYTLogo:false, showAnnotations: false, showControls: false, cc_load_policy: false, containment:'#home-section',autoPlay:true, mute:true, startAt:255, stopAt: 271, opacity:1}">
+</a>
+
+<div class="intro-section" id="home-section" style="background-color: #ccc;">
+    <div class="container">
+
+        <div class="row align-items-center">
+            <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                <h1 class="mb-3">NO MORE EXCUSES</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="schedule-wrap">
+    <div class="d-md-flex align-items-center">
+        <div class="hours mr-md-4 mb-4 mb-lg-0">
+            <strong class="d-block"> Exercise History:</strong>
+        </div>
+
+    </div>
+</div>
+<div class="row col-10 mx-auto">
+    <div id="my_camera"> </div>
+    <div class="col-3">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="/profile">Profile</a>
+            </li>
+            <li class="list-group-item">
+                <a href="/exercise-history">Exercise History</a>
+            </li>
+            <li class="list-group-item">
+                <a href="/logout">Logout</a>
+            </li>
+          </ul>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <div class="col-6">
+                <div class="m-3 text-success">
+                    <p>Top Exercises in {{ month }}/{{ year }}:</p>
+                    <h1>{{ max_count.exercise_value__max }}</h1>
+                    <p>{{ max_count_type }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <form method="post">
+                    <div class="form-group row m-3">
+                        <select name="month" class="form-control col-7">
+                            {% for m in monthsList %}
+                                {% if forloop.counter == month  %}
+                                <option value="{{ forloop.counter }}" selected="selected">{{ m }}</option>
+                                {% else %}
+                                <option value="{{ forloop.counter }}" >{{ m }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary col-4">Display</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% if exercises %}
+        <p class="m-4 p4 text-underline border-bottom">Exercise List</p>
+        <div class="m-3 p-3 rounded col-12 row">
+            <table class="table col-12">
+                <thead>
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Exercise Type</th>
+                        <th scope="col">Exercises Counts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in exercises %}
+                    <tr>
+                        <th scope="row">{{ item.exercise_date | date:"d/m/Y" }}</th>
+                        <th scope="row">{{ item.exercise_type }}</th>
+                        <th scope="row">{{ item.exercise_value }}</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

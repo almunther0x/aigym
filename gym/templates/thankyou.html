@@ -1,0 +1,31 @@
+{% extends "structure.html" %}
+{% block content %}
+{% load static %}
+{% static "" as baseUrl %}
+<a id="bgndVideo" class="player"
+    data-property="{videoURL:'https://www.youtube.com/watch?v=w-cRWOjlk8c',showYTLogo:false, showAnnotations: false, showControls: false, cc_load_policy: false, containment:'#home-section',autoPlay:true, mute:true, startAt:255, stopAt: 271, opacity:1}">
+</a>
+
+<div class="intro-section" id="home-section" style="background-color: #ccc;">
+    <div class="container">
+
+        <div class="row align-items-center">
+            <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                <h1 class="mb-3">NO MORE EXCUSES</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="schedule-wrap">
+    <div class="d-md-flex align-items-center">
+        <div class="hours mr-md-4 mb-4 mb-lg-0">
+            <strong class="d-block"> Thank you</strong>
+        </div>
+
+    </div>
+</div>
+
+<h3 class="m-4 p4 text-center">Thank you for your message, we'll get back to you as soon as possible..</h3>
+{% endblock %}

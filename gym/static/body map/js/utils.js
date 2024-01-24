@@ -1,0 +1,1 @@
+$(".tag-cloud-link").on("click",(function(t){t.preventDefault();var e=document.getElementById("navbar-search-input");Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,"value").set.call(e,t.target.innerText);const n=new Event("input",{bubbles:!0});e.dispatchEvent(n),window.scrollTo(0,0)}));
